@@ -13,5 +13,6 @@ loading so the accepted Snapshot does not depend on runtime network access.
 The game mechanics are unchanged.
 
 `tests/interactive.spec.js` verifies a rendered canvas, gameplay state, board
-rotation, and a falling block from a fresh Playwright context. `verify.py`
-provides the restored-guest `seal_at` check and validates the pinned asset set.
+rotation, and a falling block from a fresh Playwright context. The inline
+`seal_at` command probes the restored guest from the runner host and validates
+the pinned asset set without depending on a host working directory.

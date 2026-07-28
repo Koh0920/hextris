@@ -10,5 +10,5 @@ port = 8080
 bind = "0.0.0.0"
 
 [seal_at]
-command = ["python3", "verify.py", "http://172.16.0.2:8080"]
+command = ["python3", "-c", "import json, urllib.request; state = json.load(urllib.request.urlopen('http://172.16.0.2:8080/__ato/state', timeout=5)); assert state == {'app': 'hextris', 'upstream_commit': '3f4847dc8fd7dab3d1c87e6324b9159d92fbd396', 'demo_mode': True, 'assets_ready': True, 'runtime_downloads': False}"]
 timeout_seconds = 30
