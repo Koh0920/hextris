@@ -11,7 +11,7 @@
     "execution_contract": {
       "schema": "ato.execution-contract/v1",
       "source": {
-        "digest": "sha256:633f76d0b3bb98e741d29a95188ab31693b4866dfe5f33693e5556559d6e057b",
+        "digest": "sha256:b11b71689af0f0745e417109b196fddd854bd5b2660521abe273fba1dd9feabf",
         "projection_digest": "blake3:98363ebb40286d90163b7882a2db5dca4e2022d6b8792f37015b043006dee6cc"
       },
       "target": {
@@ -35,10 +35,10 @@
         "environment_policy_digest": "blake3:509a2efeb3c632e743194e94676bfaddbd182d57b4f10a5a609581c79279370e"
       },
       "filesystem": {
-        "view_digest": "blake3:8a09490564832d51223c07bbf7213149b1b87f2cc60044441800951ce2678bcc",
+        "view_digest": "blake3:c8762ae42b124f5feb57d6d32af76bdbfcdecb0563fee64b478d96480b482e2d",
         "topology_digest": "blake3:9d5f1f3c3522a26415bfc9b8374645704b6df3161d8ad2dcfd0995ce5693f4ca",
         "readonly_layers": [
-          "blake3:8a09490564832d51223c07bbf7213149b1b87f2cc60044441800951ce2678bcc"
+          "blake3:c8762ae42b124f5feb57d6d32af76bdbfcdecb0563fee64b478d96480b482e2d"
         ],
         "writable_paths": [
           "/run",
@@ -57,6 +57,6 @@
         "port": 8080
       }
     },
-    "execution_id": "blake3:e35e3f204527c9031ecc88a3f7d1d508448c1a4b9f33901584d9e89dc982ae14"
+    "execution_id": "blake3:6c379f78b877c137e5119b7e058678f741116bf3113077e68fe984c14e71d27b"
   }
 }
