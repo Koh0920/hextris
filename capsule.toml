@@ -1,0 +1,14 @@
+schema_version = "1"
+name = "hextris"
+version = "1.0.0"
+
+[run]
+command = ["python3", "server.py"]
+
+[web]
+port = 8080
+bind = "0.0.0.0"
+
+[seal_at]
+command = ["python3", "verify.py", "http://172.16.0.2:8080"]
+timeout_seconds = 30

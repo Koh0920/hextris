@@ -1,5 +1,23 @@
 $(document).ready(function() {
 	initialize();
+	if (new URLSearchParams(window.location.search).get("ato-demo") === "1") {
+		// Guest snapshots do not include browser storage, so every fresh Store
+		// browser enters the same usable gameplay state.
+		localStorage.removeItem("saveState");
+		window.__ATO_HEXTRIS_READY__ = {
+			upstreamCommit: "3f4847dc8fd7dab3d1c87e6324b9159d92fbd396",
+			started: false,
+			rotations: 0
+		};
+		setTimeout(function() {
+			init(1);
+			resumeGame();
+			window.__ATO_HEXTRIS_READY__.started = gameState === 1;
+			document.body.dataset.atoGameState = String(gameState);
+			document.body.dataset.atoRotations = "0";
+			document.body.dataset.atoBlockCount = String(blocks.length);
+		}, 50);
+	}
 });
 function initialize(a) {
 	window.rush = 1;
@@ -159,19 +177,6 @@ function initialize(a) {
 		});
 
 		addKeyListeners();
-		(function(i, s, o, g, r, a, m) {
-			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function() {
-				(i[r].q = i[r].q || []).push(arguments)
-			}, i[r].l = 1 * new Date();
-			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-			a.async = 1;
-			a.src = g;
-			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-		ga('create', 'UA-51272720-1', 'teamsnowman.github.io');
-		ga('send', 'pageview');
-
 		document.addEventListener("pause", handlePause, false);
 		document.addEventListener("backbutton", handlePause, false);
 		document.addEventListener("menubutton", handlePause, false); //menu button on android

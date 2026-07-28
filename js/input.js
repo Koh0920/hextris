@@ -4,6 +4,11 @@ function addKeyListeners() {
 		on_keydown: function() {
 			if (MainHex && gameState !== 0) {
 				MainHex.rotate(1);
+				if (window.__ATO_HEXTRIS_READY__) {
+					window.__ATO_HEXTRIS_READY__.rotations += 1;
+					document.body.dataset.atoRotations =
+						String(window.__ATO_HEXTRIS_READY__.rotations);
+				}
 			}
 		}
 	});
@@ -13,6 +18,11 @@ function addKeyListeners() {
 		on_keydown: function() {
 			if (MainHex && gameState !== 0){
 				MainHex.rotate(-1);
+				if (window.__ATO_HEXTRIS_READY__) {
+					window.__ATO_HEXTRIS_READY__.rotations += 1;
+					document.body.dataset.atoRotations =
+						String(window.__ATO_HEXTRIS_READY__.rotations);
+				}
 			}
 		}
 	});
@@ -233,4 +243,3 @@ function handleClickTap(x,y) {
 		MainHex.rotate(-1);
 	}
 }
-
