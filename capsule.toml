@@ -1,0 +1,44 @@
+schema = 1
+
+[[process]]
+id = "app"
+command = ["python3", "server.py"]
+cwd = "."
+
+[[adapter]]
+target = "app"
+use = "ato.process@1"
+
+[[port]]
+id = "app.http"
+node = "app"
+protocol = "ato.http@1"
+role = "server"
+
+[[adapter]]
+port = "app.http"
+use = "ato.http@1"
+listen = "127.0.0.1:38985"
+upstream = "127.0.0.1:38986"
+ready_path = "/__ato/health"
+
+[[adapter]]
+target = "workspace"
+use = "ato.workspace@1"
+
+[workspace]
+include = [
+  "server.py",
+  "index.html",
+  "favicon.ico",
+  "manifest.webmanifest",
+  "LICENSE.md",
+  "a.js",
+  "images",
+  "js",
+  "style",
+  "vendor",
+]
+
+[encap]
+materializers = ["ato.replay@1"]
